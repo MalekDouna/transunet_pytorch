@@ -16,7 +16,7 @@ class DentalDataset(Dataset):
 
         self.transform = transform
 
-        img_folder = os.path.join(path, 'img')
+        img_folder = os.path.join(path, 'image')
         mask_folder = os.path.join(path, 'mask')
 
         self.img_paths = []
@@ -24,8 +24,8 @@ class DentalDataset(Dataset):
         for p in os.listdir(img_folder):
             name = p.split('.')[0]
 
-            self.img_paths.append(os.path.join(img_folder, name + '.jpg'))
-            self.mask_paths.append(os.path.join(mask_folder, name + '.bmp'))
+            self.img_paths.append(os.path.join(img_folder, name + '.png'))
+            self.mask_paths.append(os.path.join(mask_folder, name + '.png'))
 
     def __getitem__(self, idx):
         if torch.is_tensor(idx):
